@@ -20,13 +20,11 @@ func _physics_process(delta):
 		move_and_collide(velocity * delta)
 
 func _on_Area2D_body_entered(body):
-	print("entrou")
 	if body.has_method("player"):
 		go = true
 
 
 func _on_Area2D_body_exited(body):
-	print("saiu")
 	if body.has_method("player"):
 		go = false
 		velocity = Vector2(0,0)
