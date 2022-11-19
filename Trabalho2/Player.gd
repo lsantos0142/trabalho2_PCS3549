@@ -35,4 +35,4 @@ func _input(event):
 				ball.set_ball_direction(direction)
 	if event.is_action_pressed("ui_change_shot"):
 		dark = !dark
-		
+

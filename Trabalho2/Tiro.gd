@@ -25,6 +25,11 @@ func _on_Area2D_body_entered(body):
 		if "Tiro" in body.name:
 			body.kill_ball()
 			kill_ball()
-		if "Enemy" in body.name:
-			body.receive_damage(damage)
-			kill_ball()
+		if ("Dark" in body.name):
+			if ("Light" in name):
+				body.receive_damage(damage)
+				kill_ball()
+		if ("Light" in body.name):
+			if not ("Light" in name):
+				body.receive_damage(damage)
+				kill_ball()

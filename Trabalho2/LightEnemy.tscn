@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Untitled.jpg" type="Texture" id=1]
+[ext_resource path="res://Untitled.png" type="Texture" id=1]
 [ext_resource path="res://DarkEnemy.gd" type="Script" id=2]
 [ext_resource path="res://vida.tres" type="Theme" id=3]
 
@@ -10,7 +10,7 @@ extents = Vector2( 20, 20 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 1024.0
 
-[node name="DarkEnemy" type="KinematicBody2D"]
+[node name="LightEnemy" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 2 )
@@ -29,8 +29,8 @@ shape = SubResource( 2 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -47.0
-margin_top = -55.0
-margin_right = 48.0
+margin_top = -49.0
+margin_right = 40.0
 margin_bottom = -35.0
 theme = ExtResource( 3 )
 value = 100.0

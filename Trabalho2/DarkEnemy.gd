@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var speed = 100
 var velocity = Vector2(0,0)
+var originalHp = 100
 var hp = 100
 var destroyed = false
 
@@ -31,5 +32,6 @@ func _on_Area2D_body_exited(body):
 
 func receive_damage(damage):
 	hp -= damage
+	$ProgressBar.value = hp
 	if hp <= 0:
 		kill()
