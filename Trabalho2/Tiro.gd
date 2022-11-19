@@ -33,3 +33,5 @@ func _on_Area2D_body_entered(body):
 			if not ("Light" in name):
 				body.receive_damage(damage)
 				kill_ball()
+		if ("Torre" in body.name):
+			kill_ball()

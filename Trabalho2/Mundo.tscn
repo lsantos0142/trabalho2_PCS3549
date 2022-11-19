@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://LightEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Torre.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawner.gd" type="Script" id=4]
+[ext_resource path="res://vidaTorre.tres" type="Theme" id=5]
 [ext_resource path="res://tiles.png" type="Texture" id=6]
-[ext_resource path="res://DarkEnemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=4]
 0/name = "tiles.png 0"
@@ -58,6 +58,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 39.2046
+
 [node name="Mundo" type="Node2D"]
 position = Vector2( 135, 103 )
 
@@ -69,8 +72,8 @@ format = 1
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" type="KinematicBody2D" parent="YSort"]
-position = Vector2( 376, 197 )
-collision_mask = 7
+position = Vector2( 495, 493 )
+collision_mask = 31
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Player"]
@@ -83,10 +86,34 @@ texture = ExtResource( 2 )
 current = true
 zoom = Vector2( 2, 2 )
 
-[node name="LightEnemy" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 561, 49 )
+[node name="Area2D" type="Area2D" parent="YSort/Player"]
 
-[node name="DarkEnemy" parent="YSort" instance=ExtResource( 7 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Player/Area2D"]
+shape = SubResource( 5 )
+
+[node name="ProgressBar" type="ProgressBar" parent="YSort/Player"]
+margin_left = -64.0
+margin_top = -77.0
+margin_right = 64.0
+margin_bottom = -57.0
+theme = ExtResource( 5 )
+value = 100.0
+rounded = true
+
+[node name="Torre" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 290, 686 )
+
+[node name="Torre2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 485, 258 )
+
+[node name="Torre3" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 679, 684 )
+
+[node name="Torre4" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 216, 412 )
+
+[node name="Torre5" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 739, 405 )
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 4 )

@@ -14,6 +14,10 @@ config/name="Trabalho2"
 run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/stretch/mode="2d"
@@ -91,6 +95,7 @@ ui_change_shot={
 2d_physics/layer_2="Ball"
 2d_physics/layer_3="Environment"
 2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Torre"
 
 [mono]
 

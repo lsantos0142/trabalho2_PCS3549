@@ -4,7 +4,8 @@ extends KinematicBody2D
 export var speed = 300
 const BALL = preload("res://Tiro.tscn")
 const BALLLIGHT = preload("res://TiroLight.tscn")
-var vida = 100
+var originalHp = 100
+var hp = originalHp
 var destroyed = false
 var dark = false;
 
@@ -36,3 +37,14 @@ func _input(event):
 	if event.is_action_pressed("ui_change_shot"):
 		dark = !dark
 
+func kill():
+	if !destroyed:
+		destroyed = true
+		get_tree().change_scene("res://Menu.tscn")
+		queue_free()
+
+func receive_damage(damage):
+	hp -= damage
+	$ProgressBar.value = hp
+	if hp <= 0:
+		kill()

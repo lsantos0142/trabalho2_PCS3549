@@ -26,18 +26,18 @@ func spawn_enemy():
 		if rand >= 7.5:
 			position = Vector2(0, randi()%HEIGHT)
 		else:
-			position = Vector2(WIDTH, randi()%HEIGHT)			
+			position = Vector2(WIDTH, randi()%HEIGHT)
 	else:
 		if rand >= 2.5:
 			position = Vector2(randi()%WIDTH, 0)
 		else:
-			position = Vector2(randi()%WIDTH, HEIGHT)	
+			position = Vector2(randi()%WIDTH, HEIGHT)
 	
 	var enemy
 	if (rng.randf_range(0.0, 10.0) >= 5.0):
 		enemy = DARKENEMY.instance()
 	else:
-		enemy = LIGHTENEMY.instance()		
+		enemy = LIGHTENEMY.instance()
 	
 	enemy.position = position
 	
