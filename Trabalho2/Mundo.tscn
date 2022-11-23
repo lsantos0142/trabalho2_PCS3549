@@ -118,6 +118,9 @@ position = Vector2( 739, 405 )
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="Timer" type="Timer" parent="EnemySpawner"]
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
 
-[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timeout"]
+[node name="RoundTimer" type="Timer" parent="EnemySpawner"]
+
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_timeout"]
+[connection signal="timeout" from="EnemySpawner/RoundTimer" to="EnemySpawner" method="_on_RoundTimer_timeout"]

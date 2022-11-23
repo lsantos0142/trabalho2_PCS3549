@@ -9,15 +9,16 @@ onready var area = $Area2D
 var ClosestObject = null
 var delta = 2
 var offset = 0.5
-
 var go = false
 
+onready var enemy_spawner = get_node("/root/Mundo/EnemySpawner")
+
 func _ready():
-	randomize()
 	set_next_attack()
 
 func kill():
 	if !destroyed:
+		enemy_spawner.set_enemy_kills(enemy_spawner.enemy_kills + 1)
 		destroyed = true
 		queue_free()
 
@@ -53,7 +54,7 @@ func _on_Area2D_body_exited(body):
 	if body.has_method("player"):
 		go = false
 		velocity = Vector2(0,0)
-
+	
 func receive_damage(damage):
 	hp -= damage
 	$ProgressBar.value = hp

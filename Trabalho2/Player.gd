@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	var move_direction = input_vector.normalized()
 	move_and_slide(speed * move_direction)
-
+	
 func player():
 	pass
 
