@@ -101,19 +101,19 @@ value = 100.0
 rounded = true
 
 [node name="Torre" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 290, 686 )
+position = Vector2( 825, 1241 )
 
 [node name="Torre2" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 485, 258 )
+position = Vector2( 1081, 473 )
 
 [node name="Torre3" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 679, 684 )
+position = Vector2( 1337, 1241 )
 
 [node name="Torre4" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 216, 412 )
+position = Vector2( 633, 793 )
 
 [node name="Torre5" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 739, 405 )
+position = Vector2( 1529, 793 )
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 4 )

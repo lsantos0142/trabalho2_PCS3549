@@ -6,6 +6,7 @@ var originalHp = 100
 var hp = originalHp
 var destroyed = false
 onready var area = $Area2D
+onready var area2 = $Range
 var ClosestObject = null
 var delta = 2
 var offset = 0.5
@@ -71,6 +72,7 @@ func set_next_attack():
 
 func _on_Timer_timeout():
 	set_next_attack()
-	for element in area.get_overlapping_areas():
+
+	for element in area2.get_overlapping_areas():
 		if ClosestObject.name in element.get_parent().name:
 			ClosestObject.receive_damage(5)

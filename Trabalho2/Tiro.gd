@@ -35,3 +35,6 @@ func _on_Area2D_body_entered(body):
 				kill_ball()
 		if ("Torre" in body.name):
 			kill_ball()
+
+func receive_damage():
+	pass

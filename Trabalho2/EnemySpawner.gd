@@ -1,7 +1,7 @@
 extends Node2D
 
-const WIDTH = 1000
-const HEIGHT = 1000
+const WIDTH = 2000
+const HEIGHT = 2000
 
 const DARKENEMY = preload("res://DarkEnemy.tscn")
 const LIGHTENEMY = preload("res://LightEnemy.tscn")
@@ -65,13 +65,9 @@ func spawn_enemy():
 	
 	return position
 
-func _draw():
-	draw_rect(spawnArea, Color(0.2,0.2, 1.0 , 0.5))
-
 func set_next_spawn():
 	var nextTime = delta + (randf()-0.5)*2*offset
 	spawnTimer.wait_time = nextTime
-	print(nextTime)
 	spawnTimer.start()
 
 func _on_timeout():
@@ -87,7 +83,7 @@ func _process(delta):
 		roundTimer.wait_time = 7
 		roundTimer.start()
 		
-		print(torre1)
+
 		if (!torre1):
 			torre1.restore_hp()
 		if (!torre2):
@@ -108,4 +104,5 @@ func _on_RoundTimer_timeout():
 	enemies_per_round += 2
 	
 	
-	
+func receive_damage():
+	pass

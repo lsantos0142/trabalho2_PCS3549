@@ -31,6 +31,9 @@ func _input(event):
 					ball = BALL.instance()
 				else:
 					ball = BALLLIGHT.instance()
+					
+				var angle = ball.transform.x.angle_to(get_local_mouse_position().normalized())
+				ball.rotate(sign(angle) * abs(angle))
 				get_parent().add_child(ball)
 				ball.global_position = global_position + (50*direction)
 				ball.set_ball_direction(direction)
