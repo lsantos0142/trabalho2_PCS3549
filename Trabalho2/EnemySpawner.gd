@@ -87,15 +87,16 @@ func _process(delta):
 		roundTimer.wait_time = 7
 		roundTimer.start()
 		
-		if (torre1 != null):
+		print(torre1)
+		if (!torre1):
 			torre1.restore_hp()
-		if (torre2 != null):
+		if (!torre2):
 			torre2.restore_hp()
-		if (torre3 != null):
+		if (!torre3):
 			torre3.restore_hp()
-		if (torre4 != null):
+		if (!torre4):
 			torre4.restore_hp()
-		if (torre5 != null):
+		if (!torre5):
 			torre5.restore_hp()
 		
 func _on_RoundTimer_timeout():
