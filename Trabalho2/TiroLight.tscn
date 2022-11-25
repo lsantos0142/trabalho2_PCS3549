@@ -41,7 +41,7 @@ position = Vector2( -22, -3.8147e-06 )
 rotation = -1.57205
 scale = Vector2( 0.180649, 0.1672 )
 frames = SubResource( 3 )
-frame = 2
+frame = 4
 playing = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
