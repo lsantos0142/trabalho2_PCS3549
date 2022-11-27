@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Torre.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Player/Ativo 1.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/Player/Ativo 7.png" type="Texture" id=13]
 [ext_resource path="res://assets/Player/Ativo 6.png" type="Texture" id=14]
 [ext_resource path="res://assets/Player/Ativo 12.png" type="Texture" id=15]
+[ext_resource path="res://assets/Background/Ativo 3@4x.png" type="Texture" id=16]
 
 [sub_resource type="TileSet" id=4]
 0/name = "tiles.png 0"
@@ -96,6 +97,17 @@ animations = [ {
 [node name="Mundo" type="Node2D"]
 position = Vector2( 135, 103 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.776471 )
+anchor_right = 0.518
+margin_left = 602.0
+margin_top = 456.0
+margin_right = 1789.0
+margin_bottom = 1414.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 5
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
@@ -136,19 +148,19 @@ animation = "IdleDark"
 playing = true
 
 [node name="Torre" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 825, 1241 )
+position = Vector2( 807, 1300 )
 
 [node name="Torre2" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 1081, 473 )
 
 [node name="Torre3" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1337, 1241 )
+position = Vector2( 1354, 1303 )
 
 [node name="Torre4" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 633, 793 )
+position = Vector2( 641, 787 )
 
 [node name="Torre5" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1529, 793 )
+position = Vector2( 1515, 789 )
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 4 )
