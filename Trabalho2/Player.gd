@@ -4,6 +4,7 @@ extends KinematicBody2D
 export var speed = 300
 const BALL = preload("res://Tiro.tscn")
 const BALLLIGHT = preload("res://TiroLight.tscn")
+onready var sprite = get_node("AnimatedSprite")
 var originalHp = 100
 var hp = originalHp
 var destroyed = false
@@ -16,6 +17,19 @@ func _physics_process(delta):
 	)
 	
 	var move_direction = input_vector.normalized()
+	var angle = sprite.transform.y.angle_to(move_direction)
+	sprite.rotate(sign(angle) * abs(angle))
+	
+	if(move_direction == Vector2(0,0)):
+		if(dark):
+			sprite.play("IdleDark")
+		else:
+			sprite.play("IdleLight")
+	else:
+		if(dark):
+			sprite.play("WalkDark")
+		else:
+			sprite.play("WalkLight")
 	move_and_slide(speed * move_direction)
 	
 func player():
