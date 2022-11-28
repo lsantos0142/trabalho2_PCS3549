@@ -9,6 +9,7 @@ var originalHp = 100
 var hp = originalHp
 var destroyed = false
 var dark = false;
+var isAttacking = false
 
 func _physics_process(delta):
 	var input_vector = Vector2(
@@ -19,17 +20,27 @@ func _physics_process(delta):
 	var move_direction = input_vector.normalized()
 	var angle = sprite.transform.y.angle_to(move_direction)
 	sprite.rotate(sign(angle) * abs(angle))
+	if (Input.is_action_just_pressed("shot")):
+		isAttacking = true
 	
-	if(move_direction == Vector2(0,0)):
-		if(dark):
-			sprite.play("IdleDark")
+	if (!isAttacking):
+		if(move_direction == Vector2(0,0)):
+			if(dark):
+				sprite.play("IdleDark")
+			else:
+				sprite.play("IdleLight")
 		else:
-			sprite.play("IdleLight")
+			if(dark):
+				sprite.play("WalkDark")
+			else:
+				sprite.play("WalkLight")
+				
 	else:
 		if(dark):
-			sprite.play("WalkDark")
+			sprite.play("AttackDark")
 		else:
-			sprite.play("WalkLight")
+			sprite.play("AttackLight")
+			
 	move_and_slide(speed * move_direction)
 	
 func player():
@@ -65,3 +76,8 @@ func receive_damage(damage):
 	$ProgressBar.value = hp
 	if hp <= 0:
 		kill()
+
+
+func _on_AnimatedSprite_animation_finished():
+	if "Attack" in $AnimatedSprite.animation:
+		isAttacking = false
