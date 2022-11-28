@@ -241,5 +241,11 @@ script = ExtResource( 4 )
 [node name="RoundTimer" type="Timer" parent="EnemySpawner"]
 
 [connection signal="animation_finished" from="YSort/Player/AnimatedSprite" to="YSort/Player" method="_on_AnimatedSprite_animation_finished"]
+[node name="DayEndedTimer" type="Timer" parent="EnemySpawner"]
+
+[node name="DayStartedTimer" type="Timer" parent="EnemySpawner"]
+
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_timeout"]
 [connection signal="timeout" from="EnemySpawner/RoundTimer" to="EnemySpawner" method="_on_RoundTimer_timeout"]
+[connection signal="timeout" from="EnemySpawner/DayEndedTimer" to="EnemySpawner" method="_on_DayEndedTimer_timeout"]
+[connection signal="timeout" from="EnemySpawner/DayStartedTimer" to="EnemySpawner" method="_on_DayStartedTimer_timeout"]
