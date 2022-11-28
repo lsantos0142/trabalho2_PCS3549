@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+HUD="*res://HUD.tscn"
 
 [display]
 

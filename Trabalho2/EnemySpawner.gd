@@ -6,6 +6,9 @@ const HEIGHT = 2000
 const DARKENEMY = preload("res://DarkEnemy.tscn")
 const LIGHTENEMY = preload("res://LightEnemy.tscn")
 
+onready var day_started_text = get_node("/root/HUD/DayStarted")
+onready var day_ended_text = get_node("/root/HUD/DayEnded")
+
 onready var torre1 := $"../YSort/Torre"
 onready var torre2 := $"../YSort/Torre2"
 onready var torre3 := $"../YSort/Torre3"
@@ -27,6 +30,8 @@ func set_enemy_kills(new_enemy_kills):
 
 onready var roundTimer := $RoundTimer
 onready var spawnTimer := $SpawnTimer
+onready var dayStartedTimer := $DayStartedTimer
+onready var dayEndedTimer := $DayEndedTimer
 
 var rng = RandomNumberGenerator.new()
 
@@ -34,6 +39,9 @@ func _ready():
 	randomize()
 	spawnArea = Rect2(0,0,WIDTH, HEIGHT)
 	set_next_spawn()
+	day_started_text.show()
+	dayStartedTimer.wait_time = 3
+	dayStartedTimer.start()
 	
 func spawn_enemy():
 	var position
@@ -79,6 +87,10 @@ func _process(delta):
 	if (enemy_kills == enemies_per_round):
 		enemy_kills = 0
 		print("Round ", round_count, " finalizado!")
+		day_ended_text.text = "Dia " + str(round_count) + " finalizado!"
+		day_ended_text.show()
+		dayEndedTimer.wait_time = 3
+		dayEndedTimer.start()
 		round_count += 1 
 		roundTimer.wait_time = 7
 		roundTimer.start()
@@ -97,12 +109,26 @@ func _process(delta):
 		
 func _on_RoundTimer_timeout():
 	print("Iniciando Round ", round_count)
+	day_started_text.text = "Dia " + str(round_count)
+	day_started_text.show()
+	dayStartedTimer.wait_time = 3
+	dayStartedTimer.start()
 	roundTimer.stop()
 	if (delta > 0.6):
 		delta -= 0.1
 	enemy_count = 0
 	enemies_per_round += 2
 	
+func _on_DayStartedTimer_timeout():
+	day_started_text.hide()
+	dayStartedTimer.stop()
 	
+func _on_DayEndedTimer_timeout():
+	day_ended_text.hide()
+	dayEndedTimer.stop()
+
+
 func receive_damage():
 	pass
+	
+
