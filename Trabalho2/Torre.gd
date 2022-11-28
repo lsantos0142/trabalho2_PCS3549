@@ -19,6 +19,8 @@ func receive_damage(damage):
 		
 func restore_hp():
 	if ($ProgressBar.value + 0.2 * maxHp > maxHp):
-		$ProgressBar.value = maxHp
+		hp = maxHp
+		$ProgressBar.value = hp
 	else:
-		$ProgressBar.value = $ProgressBar.value + 0.2 * maxHp
+		hp += 0.2 * maxHp
+		$ProgressBar.value = hp

@@ -77,22 +77,25 @@ func _on_timeout():
 		
 func _process(delta):
 	if (enemy_kills == enemies_per_round):
+		
+		
 		enemy_kills = 0
 		print("Round ", round_count, " finalizado!")
 		round_count += 1 
 		roundTimer.wait_time = 7
 		roundTimer.start()
 		
+		
 
-		if (!torre1):
+		if (is_instance_valid(torre1)):
 			torre1.restore_hp()
-		if (!torre2):
+		if (is_instance_valid(torre2)):
 			torre2.restore_hp()
-		if (!torre3):
+		if (is_instance_valid(torre3)):
 			torre3.restore_hp()
-		if (!torre4):
+		if (is_instance_valid(torre4)):
 			torre4.restore_hp()
-		if (!torre5):
+		if (is_instance_valid(torre5)):
 			torre5.restore_hp()
 		
 func _on_RoundTimer_timeout():
