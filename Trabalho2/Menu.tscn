@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Menu/start screen.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/Menu/botão jogar (3).png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/Menu/botão jogar (4).png" type="Texture" id=5]
 [ext_resource path="res://assets/Menu/botão jogar (5).png" type="Texture" id=6]
 [ext_resource path="res://assets/Menu/botão jogar (1).png" type="Texture" id=7]
+[ext_resource path="res://assets/Menu/Logo V1.png" type="Texture" id=8]
 
 [sub_resource type="AnimatedTexture" id=1]
 frames = 5
@@ -38,5 +39,10 @@ margin_right = 1161.0
 margin_bottom = 855.0
 rect_scale = Vector2( 0.818385, 1.07634 )
 texture_normal = SubResource( 1 )
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 606, 168 )
+scale = Vector2( 0.6382, 0.6382 )
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
