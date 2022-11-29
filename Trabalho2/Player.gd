@@ -18,7 +18,7 @@ func _physics_process(delta):
 	)
 	
 	var move_direction = input_vector.normalized()
-	var angle = sprite.transform.y.angle_to(move_direction)
+	var angle = sprite.transform.y.angle_to(get_local_mouse_position().normalized())
 	sprite.rotate(sign(angle) * abs(angle))
 	if (Input.is_action_just_pressed("shot")):
 		isAttacking = true

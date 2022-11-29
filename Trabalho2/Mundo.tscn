@@ -187,7 +187,7 @@ rotation = -3.13405
 scale = Vector2( 0.284647, 0.296508 )
 frames = SubResource( 6 )
 animation = "AttackDark"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Torre" parent="YSort" instance=ExtResource( 1 )]
@@ -196,7 +196,7 @@ position = Vector2( 807, 1300 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Torre"]
 scale = Vector2( 0.254082, 0.254082 )
 frames = SubResource( 7 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Torre2" parent="YSort" instance=ExtResource( 1 )]
@@ -205,6 +205,7 @@ position = Vector2( 1081, 473 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Torre2"]
 scale = Vector2( 0.254082, 0.254082 )
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="Torre3" parent="YSort" instance=ExtResource( 1 )]
@@ -213,7 +214,7 @@ position = Vector2( 1354, 1303 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Torre3"]
 scale = Vector2( 0.254082, 0.254082 )
 frames = SubResource( 7 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Torre4" parent="YSort" instance=ExtResource( 1 )]
@@ -222,6 +223,7 @@ position = Vector2( 641, 787 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Torre4"]
 scale = Vector2( 0.253858, 0.253858 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="Torre5" parent="YSort" instance=ExtResource( 1 )]
@@ -230,7 +232,7 @@ position = Vector2( 1515, 789 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Torre5"]
 scale = Vector2( 0.253858, 0.253858 )
 frames = SubResource( 8 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="EnemySpawner" type="Node2D" parent="."]
